@@ -78,12 +78,6 @@ describe(Volunteer) do
   end
 
   describe('#update') do
-    it('will update the first name of a volunteer') do
-      vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
-      vol_Bill_Gates.save()
-      vol_Bill_Gates.update({:first_name => 'William', :last_name => nil, :hours => '350', :project_id => 1})
-      expect(vol_Bill_Gates.first_name()).to(eq('William'))
-    end
     it('will update the hours of a volunteer') do
       vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
       vol_Bill_Gates.save()

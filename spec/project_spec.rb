@@ -91,7 +91,7 @@ describe(Project) do
       vol_Steve_Jobs.save()
       vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => project1.id()})
       vol_Bill_Gates.save()
-      expect(project1.volunteers()).to(eq([vol_Steve_Jobs, vol_Bill_Gates]))
+      expect(project1.volunteers(project1.id())).to(eq([vol_Steve_Jobs, vol_Bill_Gates]))
     end
   end
 end

@@ -5,7 +5,19 @@
 
   <h2>Projects</h2>
 
-  <p>Create a new project:</p>
+  <% if @projects.any?() %>
+  <h4>Click on a project to see its volunteers:</h4>
+
+  <ul>
+    <% @projects.each do |project| %>
+    <li><a href="/projects/<%= project.id() %>"><%= project.project_name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no projects yet!</p>
+  <% end %>
+
+  <h4>Create a new project:</h4>
 
   <form action="/projects" method="post">
     <div class="form-group">
@@ -15,6 +27,19 @@
 
     <button type="submit" class="btn btn-primary">Add Project</button>
   </form>
+
+  <h2>Volunteers</h2>
+  <% if @volunteers.any?() %>
+  <h4>Click on a volunteer to see their information:</h4>
+
+  <ul>
+    <% @volunteers.each do |volunteer| %>
+    <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.first_name() %> <%= volunteer.last_name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no volunteers yet!</p>
+  <% end %>
 
   <p>Add volunteers to any project:</p>
 
@@ -41,15 +66,5 @@
     <button type="submit" class="btn btn-info">Add Volunteer</button>
   </form>
 
-  <% if @projects.any?() %>
-  <p>Click on a project to see its volunteers:</p>
 
-  <ul>
-    <% @projects.each do |project| %>
-    <li><a href="/projects/<%= project.id() %>"><%= project.project_name() %></a></li>
-    <% end %>
-  </ul>
-  <% else %>
-  <p>There are no projects yet!</p>
-  <% end %>
 </div>

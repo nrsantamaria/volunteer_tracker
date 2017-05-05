@@ -83,11 +83,9 @@ class Volunteer
   end
 
   def update(attributes)
-    @first_name = attributes.fetch(:first_name)
-    @last_name = attributes.fetch(:last_name)
     @hours = attributes.fetch(:hours)
     @id = self.id()
-    DB.exec("UPDATE volunteers SET first_name = '#{@first_name}', last_name = '#{@last_name}', hours = #{@hours} WHERE id = #{@id};")
+    DB.exec("UPDATE volunteers SET hours = #{@hours} WHERE id = #{@id};")
   end
 
   def delete
