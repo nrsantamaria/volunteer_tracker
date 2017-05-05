@@ -27,4 +27,12 @@ class Volunteer
   def ==(another_volunteer)
     self.first_name().==(another_volunteer.first_name()).&(self.last_name().==(another_volunteer.last_name())).&(self.id().==(another_volunteer.id()))
   end
+
+  def Volunteer.find(id)
+    Volunteer.all().each() do |volunteer|
+      if volunteer.id() == id
+        return volunteer
+      end
+    end
+  end
 end

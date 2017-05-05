@@ -27,10 +27,12 @@ class Project
   end
 
   def Project.find(id)
+    found_projects = nil
     Project.all().each() do |project|
       if project.id() == id
-        return project
+        found_projects= project
       end
     end
+    found_projects
   end
 end

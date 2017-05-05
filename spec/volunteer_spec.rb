@@ -36,4 +36,14 @@ describe(Volunteer) do
       expect(vol_Steve_Jobs).to(eq(vol_Steve_Jobs2))
     end
   end
+
+  describe('.find') do
+    it('will find a volunteer based on their id') do
+      vol_Steve_Jobs = Volunteer.new({:first_name => 'Steve', :last_name => 'Jobs'})
+      vol_Steve_Jobs.save()
+      vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates'})
+      vol_Bill_Gates.save()
+      expect(Volunteer.find(vol_Bill_Gates.id())).to(eq(vol_Bill_Gates))
+    end
+  end
 end
