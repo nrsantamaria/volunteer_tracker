@@ -13,9 +13,18 @@ class Volunteer
     results.each() do |volunteer|
       first_name = volunteer.fetch('first_name')
       last_name = volunteer.fetch('last_name')
-      id = volunteer.fetch('id')
+      id = volunteer.fetch('id').to_i()
       volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :id => id}))
     end
     volunteers
+  end
+
+  def save
+    result = DB.exec("INSERT INTO volunteers (first_name, last_name) VALUES ('#{first_name}', '#{last_name}') RETURNING id;")
+    @id = result.first['id'].to_i()
+  end
+
+  def ==(another_volunteer)
+    self.first_name().==(another_volunteer.first_name()).&(self.last_name().==(another_volunteer.last_name())).&(self.id().==(another_volunteer.id()))
   end
 end
