@@ -39,7 +39,7 @@ CREATE SQL DATABASE AND TABLES
 * _Enter the command: \c volunteer_tracker;_
 * _Enter the command: CREATE TABLE volunteers (id serial PRIMARY KEY, first_name varchar, last_name varchar, hours integer);_
 * _Enter the command: CREATE TABLE projects (id serial PRIMARY KEY, project_name varchar);_
-* _Enter the command: \c #"your system name"#_
+* _Enter the command: \c #your system name#_
 * _Enter the command: CREATE DATABASE volunteer_tracker_test WITH TEMPLATE volunteer_tracker;_
 
 ## Known Bugs
