@@ -13,6 +13,18 @@ get("/") do
   erb(:index)
 end
 
+get("/projects_sorted") do
+  @projects = Project.sort_name
+  @volunteers = Volunteer.all()
+  erb(:index)
+end
+
+get("/volunteers_sorted") do
+  @volunteers = Volunteer.sort_name
+  @projects = Project.all()
+  erb(:index)
+end
+
 post ("/volunteers") do
   first_name = params.fetch("volunteer-first")
   last_name = params.fetch("volunteer-last")

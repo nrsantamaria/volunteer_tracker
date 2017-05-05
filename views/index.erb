@@ -13,6 +13,7 @@
     <li><a href="/projects/<%= project.id() %>"><%= project.project_name() %></a></li>
     <% end %>
   </ul>
+  <a href="/projects_sorted" class="btn btn-default">Sort Projects</a>
   <% else %>
   <p>There are no projects yet!</p>
   <% end %>
@@ -37,6 +38,7 @@
     <li><a href="/volunteers/<%= volunteer.id() %>"><%= volunteer.first_name() %> <%= volunteer.last_name() %></a></li>
     <% end %>
   </ul>
+  <a href="/volunteers_sorted" class="btn btn-default">Sort Volunteers by Name</a>
   <% else %>
   <p>There are no volunteers yet!</p>
   <% end %>

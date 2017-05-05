@@ -21,6 +21,7 @@ body h2 {
   font-family: 'Bowlby One SC', cursive;
   text-shadow: -1px 1px #000;
   color: #01B28F;
+  text-align: center;
 }
 
 .btn-primary {
@@ -32,6 +33,13 @@ body h2 {
 
 .btn-info {
   background-color: #8CE9E9;
+  border: 0px;
+  font-size: 20px;
+  text-shadow: -0.6px 0.6px #000;
+}
+
+.btn-default {
+  background-color: grey;
   border: 0px;
   font-size: 20px;
   text-shadow: -0.6px 0.6px #000;
