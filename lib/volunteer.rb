@@ -40,7 +40,7 @@ class Volunteer
     end
   end
 
-  def Volunteer.sort
+  def Volunteer.sort_name
     sorted_volunteers = DB.exec("SELECT * FROM volunteers ORDER BY last_name, first_name")
     volunteers = []
     sorted_volunteers.each() do |volunteer|
@@ -55,6 +55,10 @@ class Volunteer
   end
 
   def update(attributes)
-
+    @first_name = attributes.fetch(:first_name)
+    @last_name = attributes.fetch(:last_name)
+    @hours = attributes.fetch(:hours)
+    @id = self.id()
+    DB.exec("UPDATE volunteers SET first_name = '#{@first_name}', last_name = '#{@last_name}', hours = #{@hours} WHERE id = #{@id};")
   end
 end
