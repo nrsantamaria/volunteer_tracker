@@ -57,13 +57,23 @@ describe(Volunteer) do
     end
   end
 
-  describe('.sort_hours') do
+  describe('.sort_hours_least') do
     it('will sort volunteers by their volunteer hours') do
       vol_Steve_Jobs = Volunteer.new({:first_name => 'Steve', :last_name => 'Jobs', :hours => '400', :project_id => 1})
       vol_Steve_Jobs.save()
       vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
       vol_Bill_Gates.save()
-      expect(Volunteer.sort_name()).to(eq([vol_Bill_Gates, vol_Steve_Jobs]))
+      expect(Volunteer.sort_hours_least()).to(eq([vol_Bill_Gates, vol_Steve_Jobs]))
+    end
+  end
+
+  describe('.sort_hours_most') do
+    it('will sort volunteers by their volunteer hours') do
+      vol_Steve_Jobs = Volunteer.new({:first_name => 'Steve', :last_name => 'Jobs', :hours => '400', :project_id => 1})
+      vol_Steve_Jobs.save()
+      vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
+      vol_Bill_Gates.save()
+      expect(Volunteer.sort_hours_most()).to(eq([vol_Steve_Jobs, vol_Bill_Gates]))
     end
   end
 
