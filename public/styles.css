@@ -1,0 +1,11 @@
+.jumbotron {
+  background-image: url('/img/Header.jpg');
+}
+
+h1 {
+  font-family: 'Arvo', serif;
+}
+
+body {
+  font-family: 'Arimo', sans-serif;
+}
