@@ -25,4 +25,12 @@ class Project
   def ==(another_project)
     self.project_name().==(another_project.project_name).&(self.id().==another_project.id())
   end
+
+  def Project.find(id)
+    Project.all().each() do |project|
+      if project.id() == id
+        return project
+      end
+    end
+  end
 end

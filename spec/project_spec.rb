@@ -32,4 +32,14 @@ describe(Project) do
     expect(project1).to(eq(project2))
     end
   end
+
+  describe('.find') do
+    it('will find a project based on the id') do
+      project1 = Project.new({:project_name => 'Beach Clean Up'})
+      project1.save()
+      project2 = Project.new({:project_name => 'Park Clean Up'})
+      project2.save()
+      expect(Project.find(project1.id())).to(eq(project1))
+    end
+  end
 end
