@@ -61,4 +61,15 @@ describe(Project) do
       expect(project1.project_name()).to(eq('Clean Parks!'))
     end
   end
+
+  describe('#delete') do
+    it('will delete a project') do
+      project1 = Project.new({:project_name => 'Park Clean Up'})
+      project1.save()
+      project2 = Project.new({:project_name => 'Beach Clean Up'})
+      project2.save()
+      project1.delete()
+      expect(Project.all()).to(eq([project2]))
+    end
+  end
 end
