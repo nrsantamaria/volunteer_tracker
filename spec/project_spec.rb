@@ -72,4 +72,16 @@ describe(Project) do
       expect(Project.all()).to(eq([project2]))
     end
   end
+
+  describe('#volunteers') do
+    it('will add volunteers to a project') do
+      project1 = Project.new({:project_name => 'Park Clean Up'})
+      project1.save()
+      vol_Steve_Jobs = Volunteer.new({:first_name => 'Steve', :last_name => 'Jobs', :hours => '300', :project_id => project1.id()})
+      vol_Steve_Jobs.save()
+      vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => project1.id()})
+      vol_Bill_Gates.save()
+      expect(project1.volunteers()).to(eq([vol_Steve_Jobs, vol_Bill_Gates]))
+    end
+  end
 end

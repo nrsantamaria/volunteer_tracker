@@ -56,4 +56,14 @@ class Project
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{self.id()};")
   end
+
+  def volunteers
+    found_volunteers = []
+    Volunteer.all().each() do |volunteer|
+      if volunteer.project_id().== id
+        found_volunteers.push(volunteer)
+      end
+    end
+    found_volunteers
+  end
 end
