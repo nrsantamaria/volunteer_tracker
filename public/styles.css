@@ -1,11 +1,27 @@
 .jumbotron {
-  background-image: url('/img/Header.jpg');
+  background-image: url("/img/Header.jpg");
+  max-height: 200px;
+  text-align: center;
 }
 
 h1 {
-  font-family: 'Arvo', serif;
+  font-family: 'Arimo', sans-serif;
+}
+
+.jumbotron h1 {
+  color: #4A04D0;
 }
 
 body {
   font-family: 'Arimo', sans-serif;
+}
+
+.center-link {
+  text-align: center;
+}
+
+@media screen and (min-width: 753px) {
+  .jumbotron h1 {
+    font-size: 50px;
+  }
 }

@@ -58,7 +58,7 @@ class Project
     DB.exec("DELETE FROM volunteers WHERE project_id = #{self.id()};")
   end
 
-  def volunteers
+  def volunteers(id)
     found_volunteers = []
     Volunteer.all().each() do |volunteer|
       if volunteer.project_id().== id

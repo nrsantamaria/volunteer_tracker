@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <h1>Update <%=@volunteer.first_name() %> <%=@volunteer.last_name() %> Details</h1>
+</div>
+<div class="container">
+  <form action="/volunteers/<%= @volunteer.id() %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <div class="form-group">
+      <label for="new-volunteer-first-name">Update volunteer first:</label>
+      <input id="new-volunteer-first-name" name="new-volunteer-first-name" type="text" value="" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="new-volunteer-last-name">Update volunteer last:</label>
+      <input id="new-volunteer-last-name" name="new-volunteer-last-name" type="text" value="" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="new-volunteer-hours">Update volunteer hours:</label>
+      <input id="new-volunteer-hours" name="new-volunteer-hours" type="number" value="" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Update</button>
+  </form>
+
+  <form action="/volunteers/<%= @volunteer.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+
+    <button type="submit" class="btn btn-danger">Delete volunteer</button>
+  </form>
+</div>

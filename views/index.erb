@@ -1,0 +1,55 @@
+<div class="jumbotron">
+  <h1>Welcome to the Volunteer Project App</h1>
+</div>
+<div class="container">
+
+  <h2>Projects</h2>
+
+  <p>Create a new project:</p>
+
+  <form action="/projects" method="post">
+    <div class="form-group">
+      <label for="project-name">Name the Volunteer Project here:</label>
+      <input id="project-name" name="project-name" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Project</button>
+  </form>
+
+  <p>Add volunteers to any project:</p>
+
+  <form action="/volunteers" method="post">
+    <label for="project_id">Select a Project</label>
+    <select id='project_id' name='project_id' type='text'>
+      <% @projects.each() do |project| %>
+        <option value="<%= project.id()%>"> <%= project.project_name() %> </option>
+      <% end %>
+    </select>
+    <div class="form-group">
+      <label for="volunteer-first">First Name of Volunteer:</label>
+      <input id="volunteer-first" name="volunteer-first" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="volunteer-last">Last Name of Volunteer:</label>
+      <input id="volunteer-last" name="volunteer-last" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="hours">Hours Volunteer has Contributed to Project:</label>
+      <input id="hours" name="hours" type="number" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-info">Add Volunteer</button>
+  </form>
+
+  <% if @projects.any?() %>
+  <p>Click on a project to see its volunteers:</p>
+
+  <ul>
+    <% @projects.each do |project| %>
+    <li><a href="/projects/<%= project.id() %>"><%= project.project_name() %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>There are no projects yet!</p>
+  <% end %>
+</div>

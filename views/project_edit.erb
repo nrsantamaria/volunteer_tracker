@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1>Update the <%=@project.project_name() %></h1>
+</div>
+<div class="container">
+  <form action="/projects/<%= @project.id() %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <div class="form-group">
+      <label for="new-project-name">Rename your project:</label>
+      <input id="new-project-name" name="new-project-name" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Update</button>
+  </form>
+
+  <form action="/projects/<%= @project.id() %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+
+    <button type="submit" class="btn btn-danger">Delete project</button>
+  </form>
+</div>
