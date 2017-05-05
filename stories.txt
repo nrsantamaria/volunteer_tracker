@@ -4,13 +4,18 @@ As a non-profit employee, I want to view, add, update and delete volunteers.
 
 As a non-profit employee, I want to add volunteers to a project.
 
-As a non-profit employee, I want a search function so I can find projects and volunteers by name.
-
 As a non-profit employee, I want a sort function so projects and volunteers can be sorted alphabetically.
 
 As a non-profit employee, I want to track how many hours each volunteer has worked.
 
 As a non-profit employee, I want to sort volunteers by most and least hours.
+
+
+
+
+
+As a non-profit employee, I want a search function so I can find projects and volunteers by name.
+
 
 As a non-profit employee, I want to calculates how many total hours all volunteers have put into a single project.
 

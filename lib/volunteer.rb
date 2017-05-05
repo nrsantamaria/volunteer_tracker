@@ -54,6 +54,20 @@ class Volunteer
     volunteers
   end
 
+  def Volunteer.sort_hours
+    sorted_volunteers = DB.exec("SELECT * FROM volunteers ORDER BY hours")
+    volunteers = []
+    sorted_volunteers.each() do |volunteer|
+      first_name = volunteer.fetch('first_name')
+      last_name = volunteer.fetch('last_name')
+      hours = volunteer.fetch('hours')
+      project_id = volunteer.fetch('project_id').to_i()
+      id = volunteer.fetch('id').to_i()
+      volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :hours => hours, :project_id => project_id, :id => id}))
+    end
+    volunteers
+  end
+
   def update(attributes)
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)

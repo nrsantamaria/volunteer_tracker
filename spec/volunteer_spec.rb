@@ -57,6 +57,16 @@ describe(Volunteer) do
     end
   end
 
+  describe('.sort_hours') do
+    it('will sort volunteers by their volunteer hours') do
+      vol_Steve_Jobs = Volunteer.new({:first_name => 'Steve', :last_name => 'Jobs', :hours => '400', :project_id => 1})
+      vol_Steve_Jobs.save()
+      vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
+      vol_Bill_Gates.save()
+      expect(Volunteer.sort_name()).to(eq([vol_Bill_Gates, vol_Steve_Jobs]))
+    end
+  end
+
   describe('#update') do
     it('will update the first name of a volunteer') do
       vol_Bill_Gates = Volunteer.new({:first_name => 'Bill', :last_name => 'Gates', :hours => '350', :project_id => 1})
