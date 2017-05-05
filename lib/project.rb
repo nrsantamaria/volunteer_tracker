@@ -36,4 +36,14 @@ class Project
     found_projects
   end
 
+  def Project.sort_name
+    sorted_projects = DB.exec("SELECT * FROM projects ORDER BY project_name")
+    projects = []
+    sorted_projects.each() do |project|
+      project_name = project.fetch('project_name')
+      id = project.fetch('id').to_i()
+      projects.push(Project.new({:project_name => project_name, :id => id}))
+    end
+    projects
+  end
 end
