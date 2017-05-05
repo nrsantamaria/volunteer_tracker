@@ -1,9 +1,10 @@
 class Volunteer
-  attr_accessor :first_name, :last_name, :project_id, :id
+  attr_accessor :first_name, :last_name, :hours, :project_id, :id
 
   def initialize(attributes)
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
+    @hours = attributes.fetch(:hours)
     @project_id = attributes[:project_id]
     @id = attributes[:id]
   end
@@ -14,20 +15,21 @@ class Volunteer
     results.each() do |volunteer|
       first_name = volunteer.fetch('first_name')
       last_name = volunteer.fetch('last_name')
+      hours = volunteer.fetch('hours')
       project_id = volunteer.fetch('project_id').to_i()
       id = volunteer.fetch('id').to_i()
-      volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :project_id => project_id, :id => id}))
+      volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :hours => hours, :project_id => project_id, :id => id}))
     end
     volunteers
   end
 
   def save
-    result = DB.exec("INSERT INTO volunteers (first_name, last_name, project_id) VALUES ('#{@first_name}', '#{@last_name}', #{@project_id}) RETURNING id;")
+    result = DB.exec("INSERT INTO volunteers (first_name, last_name, hours, project_id) VALUES ('#{@first_name}', '#{@last_name}', #{@hours}, #{@project_id}) RETURNING id;")
     @id = result.first['id'].to_i()
   end
 
   def ==(another_volunteer)
-    self.first_name().==(another_volunteer.first_name()).&(self.last_name().==(another_volunteer.last_name())).&(self.id().==(another_volunteer.id()))
+    self.first_name().==(another_volunteer.first_name()).&(self.last_name().==(another_volunteer.last_name())).&(self.hours().==(another_volunteer.hours())).&(self.project_id().==(another_volunteer.project_id())).&(self.id().==(another_volunteer.id()))
   end
 
   def Volunteer.find(id)
@@ -44,11 +46,15 @@ class Volunteer
     sorted_volunteers.each() do |volunteer|
       first_name = volunteer.fetch('first_name')
       last_name = volunteer.fetch('last_name')
+      hours = volunteer.fetch('hours')
       project_id = volunteer.fetch('project_id').to_i()
       id = volunteer.fetch('id').to_i()
-      volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :project_id => project_id, :id => id}))
+      volunteers.push(Volunteer.new({:first_name => first_name, :last_name => last_name, :hours => hours, :project_id => project_id, :id => id}))
     end
     volunteers
   end
 
+  def update(attributes)
+
+  end
 end
