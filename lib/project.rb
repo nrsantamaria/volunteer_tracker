@@ -16,4 +16,13 @@ class Project
     end
     projects
   end
+
+  def save
+    result = DB.exec("INSERT INTO projects (project_name) VALUES ('#{project_name}') RETURNING id;")
+    @id = result.first['id'].to_i()
+  end
+
+  def ==(another_project)
+    self.project_name().==(another_project.project_name).&(self.id().==another_project.id())
+  end
 end
