@@ -9,8 +9,8 @@ h1 {
 }
 
 .jumbotron h1 {
-  color: #8CE9E9;
-  text-shadow: -1px 1px #000;
+  color: #D9EDF7;
+  text-shadow: -2px 2px #000;
 }
 
 body {
@@ -22,6 +22,7 @@ body h2 {
   text-shadow: -1px 1px #000;
   color: #01B28F;
   text-align: center;
+  font-size: 45px;
 }
 
 .btn-primary {
@@ -31,26 +32,16 @@ body h2 {
   text-shadow: -0.6px 0.6px #000;
   }
 
-.btn-info {
-  background-color: #8CE9E9;
-  border: 0px;
-  font-size: 20px;
-  text-shadow: -0.6px 0.6px #000;
-}
-
-.btn-default {
-  background-color: grey;
-  border: 0px;
-  font-size: 20px;
-  text-shadow: -0.6px 0.6px #000;
-}
-
 .btn {
   display: block;
   margin: auto;
   width: 300px;
   margin-top: 10px;
   border: 0;
+}
+
+h4 {
+  text-align: center;
 }
 
 @media screen and (min-width: 753px) {

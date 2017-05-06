@@ -12,7 +12,16 @@ _This app will use a SQL database to track volunteers. Users will be able to add
 
 | Behavior |  Input   |  Output  |
 |----------|:--------:|:--------:|
-| user will be able to input a word to the system and it will be added to a word list. | word: 'Asteroid' | Word List: -'Asteroid'|
+| As a non-profit employee, I want to view and add projects. | Project Name: 'Clean Up' | Project List: -'Clean Up'|
+| As a non-profit employee, I want to update projects. | Project Name: 'Clean Up' New Project Name: 'Park Clean Up'| Project List: -'Park Clean Up'|
+| As a non-profit employee, I want to delete projects. | Project Name: 'Park Clean Up', Delete Project | Project List: |
+| As a non-profit employee, I want to view and add volunteers. | Volunteer Name: 'Steve Jobs' | Volunteer List: -'Steve Jobs'|
+| As a non-profit employee, I want to update volunteers. | Volunteer Name: 'Steve Jobs' New Volunteer Name: 'Steven Jobs'| Volunteer List: -'Steven Jobs'|
+| As a non-profit employee, I want to delete volunteers. | Volunteer Name: 'Steven Jobs', Delete Volunteer | Volunteer List: |
+|As a non-profit employee, I want to add volunteers to a project.|Volunteer Name: 'Steve Jobs' Project Name: 'Park Clean Up'| Project Details: 'Park Clean Up' Volunteer List: 'Steve Jobs'
+|As a non-profit employee, I want a sort function so projects can be sorted alphabetically.|Sort Projects| Project List: -'Beach Clean Up' -'Park Clean Up'|
+|As a non-profit employee, I want a sort function so volunteers can be sorted alphabetically.|Sort Volunteers| Volunteer List: -'Dave Apple' -'Steve Jobs'|
+|As a non-profit employee, I want to track how many hours each volunteer has worked.|Volunteer Name: 'Steve Jobs' Hours: 10| Volunteer List: 'Steve Jobs | Hours: 10'|
 
 ## Setup/Installation Requirements
 
